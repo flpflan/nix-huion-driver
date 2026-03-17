@@ -13,7 +13,7 @@
     in
     {
       nixosModules = {
-        huionDriver = nixpkgs.lib.importApply ./module.nix self;
+        huionDriver = import ./module.nix self;
         default = self.nixosModules.huionDriver;
       };
 
