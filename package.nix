@@ -109,10 +109,7 @@ stdenv.mkDerivation rec {
     description = "Huion tablet linux driver (repackaged for NixOS)";
     homepage = "https://www.huion.com";
     downloadPage = "https://www.huion.com/download";
-    license = {
-      free = false;
-      url = "https://www.huion.com/privacy-policy";
-    };
+    license = licenses.unfree;
     platforms = platforms.linux;
     mainProgram = "huiontablet";
   };

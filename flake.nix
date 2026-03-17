@@ -9,7 +9,6 @@
     { self, nixpkgs, ... }:
     let
       eachSystem = nixpkgs.lib.genAttrs [ "x86_64-linux" ];
-      pkgsFor = nixpkgs.legacyPackages;
     in
     {
       nixosModules = {
@@ -22,7 +21,10 @@
       packages = eachSystem (
         system:
         let
-          pkgs = pkgsFor.${system};
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
         in
         {
           huionDriver = pkgs.callPackage ./package.nix { };
