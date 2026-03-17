@@ -17,7 +17,7 @@
         default = self.nixosModules.huionDriver;
       };
 
-      # overlays.default = import ./overlay.nix;
+      overlays.default = import ./overlay.nix;
 
       packages = eachSystem (
         system:
