@@ -23,7 +23,7 @@ let
   }
   else fetchurl {
     url = "https://driverdl.huion.com/driver/Linux/HuionTablet_LinuxDriver_v${version}.x86_64.tar.xz";
-    hash = "sha256-iAcUBJxgQ5d35aROIxVJ2Dx/9nf70DBSwNYpmterpFo=";
+    hash = "sha256-sCUztiMQ+CVlM1SxaQa/5vcK417GSUxB6JgBoilsPAY=";
     curlOptsList = [ "-H" "User-Agent: Mozilla/5.0" "-H" "Referer: https://www.huion.com/" ];
   };
 in 
