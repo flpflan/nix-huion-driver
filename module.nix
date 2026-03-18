@@ -9,7 +9,7 @@ let
   inherit (pkgs.stdenv.hostPlatform) system;
 
   driver-default = self.packages.${system}.default;
-  cfg = config.huionDriver;
+  cfg = config.programs.huionDriver;
 in
 {
   options.programs.huionDriver = with lib; {
