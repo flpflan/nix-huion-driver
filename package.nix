@@ -81,6 +81,7 @@ stdenv.mkDerivation rec {
     cp icon/huiontablet.png \
        $out/share/icons/hicolor/256x256/apps/
 
+    # wrapper
     mkdir -p $out/bin
     makeWrapper $out/lib/huiontablet/huiontablet.sh \
       $out/bin/huiontablet \
@@ -97,10 +98,14 @@ stdenv.mkDerivation rec {
 
   postPatch = ''
     substituteInPlace huiontablet/huiontablet.sh \
-      --replace 'dirname=`dirname $0`' "dirname=$out/lib/huiontablet"
+      --replace 'dirname=`dirname $0`' "dirname=$out/lib/huiontablet" \
+      --replace 'ps -e|grep' "pgrep -x" \
+      --replace 'killall' "pkill -x"
 
     substituteInPlace huiontablet/huionCore.sh \
-      --replace 'dirname=`dirname $0`' "dirname=$out/lib/huiontablet"
+      --replace 'dirname=`dirname $0`' "dirname=$out/lib/huiontablet" \
+      --replace 'ps -e|grep' 'pgrep -x' \
+      --replace 'killall' 'pkill -x'
   '';
 
   dontFixup = false;
