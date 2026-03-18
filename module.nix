@@ -26,8 +26,8 @@ in
 
     services.udev.packages = [ cfg.package ];
 
-    services.udev.extraRules = ''
-      KERNEL=="uinput", MODE="0666"
-    '';
+    # services.udev.extraRules = ''
+    #   KERNEL=="uinput", MODE="0666"
+    # '';
   };
 }
