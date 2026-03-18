@@ -12,7 +12,7 @@ let
   cfg = config.huionDriver;
 in
 {
-  options.huionDriver = with lib; {
+  options.programs.huionDriver = with lib; {
     enable = mkEnableOption "Enable Huion tablet driver and udev rules";
     package = mkOption {
       type = types.package;
