@@ -15,7 +15,7 @@
 }:
 
 let
-  version = if cnVersion then "15.0.0.C159" else "15.0.0.175";
+  version = if cnVersion then "15.0.0.C159" else "15.0.0.181";
   src = if cnVersion then fetchurl {
     url = "https://driver.huion.cn/Driver/Linux/HuionTablet_LinuxDriver_v${version}.x86_64.tar.xz";
     hash = "sha256-iAcUBJxgQ5d35aROIxVJ2Dx/9nf70DBSwNYpmterpFo=";
@@ -23,7 +23,7 @@ let
   }
   else fetchurl {
     url = "https://driverdl.huion.com/driver/Linux/HuionTablet_LinuxDriver_v${version}.x86_64.tar.xz";
-    hash = "sha256-sCUztiMQ+CVlM1SxaQa/5vcK417GSUxB6JgBoilsPAY=";
+    hash = "sha256-rKDsMOna23nuxlOIuAAHb79kUW8GjPAodLYaNfiyLro=";
     curlOptsList = [ "-H" "User-Agent: Mozilla/5.0" "-H" "Referer: https://www.huion.com/" ];
   };
 in 
